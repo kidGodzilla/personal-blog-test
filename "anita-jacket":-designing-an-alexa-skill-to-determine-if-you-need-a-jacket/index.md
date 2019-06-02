@@ -146,7 +146,7 @@ If you’re looking for a more robust solution (and not too worried about table 
 
 #### Execution / API Lookup Flow
 
-![A brief overview of what our skill needs to accomplish](./asset-7.png)
+![A brief overview of what our skill needs to accomplish]([https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-7.png)
 
 As you can see, our app needs to accomplish a lot!
 
@@ -191,5 +191,5 @@ Have your own experience or tips on Designing for Voice & Alexa?
 
 Let me know what you think!
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxMzYwNDg0MF19
+eyJoaXN0b3J5IjpbMTI0NDc1MzcxOV19
 -->
