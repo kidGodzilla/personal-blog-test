@@ -251,6 +251,44 @@
                 window.dirCount = dir.length;
 
                 dir.forEach(function (item) {
+                    
+                    function butAfter () {
+                        // Sort
+                        blogroll.sort((b, a) => (new Date(a.date) > new Date(b.date)) ? 1 : ((new Date(b.date) > new Date(a.date)) ? -1 : 0));
+
+                        firstItem = blogroll.shift();
+
+                        if (firstItem.categories) $('.page-header__cat').html(firstItem.categories.join(', '));
+                        if (!firstItem.categories.length) $('.page-header__cat').remove();
+
+                        if (firstItem.title) $('.page-header__title a').html(firstItem.title).attr('href', 'post.html?author='+  encodeURIComponent(author) + '&src=' + encodeURIComponent(firstItem.url));
+
+                        if (firstItem.date) $('.page-header__date').html((new Date(firstItem.date)).toDateString());
+
+                        if (firstItem.description) $('.page-header__content p').first().html(firstItem.description);
+
+                        $('.page-header__content p a').attr('href', 'post.html?author='+  encodeURIComponent(author) + '&src=' + encodeURIComponent(firstItem.url));
+
+                        if (author) $('.page-header__meta .author span').html(author);
+
+                        blogroll.forEach(function (blogItem) {
+                            var date = (new Date(blogItem.date)).toDateString();
+                            var cats = blogItem.categories.join(', ');
+                            var href = 'post.html?author='+  encodeURIComponent(author) + '&src=' + encodeURIComponent(blogItem.url);
+                            // blogItem.title;
+                            // blogItem.description
+                            // href x2
+
+                            $('.blog-list').append(template.replace('{{description}}', blogItem.description).replace('{{title}}', blogItem.title).replace('{{cats}}', cats).replace('{{date}}', date).replace('{{href}}', href).replace('{{href}}', href))
+                        });
+                    }
+
+                    if (item.path == 'README.md' || item.type !== 'dir') {
+                        if (!--dirCount) butAfter();
+
+                        return;
+                    }
+
                     var mdPath = baseUrl + item.path + '/index.md';
                     files.push(mdPath);
 
@@ -272,38 +310,9 @@
                         index[item.path] = metadata;
                         if (metadata.published) blogroll.push(metadata);
 
-                        if (!--dirCount) {
-                            // Sort
-                            blogroll.sort((b, a) => (new Date(a.date) > new Date(b.date)) ? 1 : ((new Date(b.date) > new Date(a.date)) ? -1 : 0));
-
-                            firstItem = blogroll.shift();
-
-                            if (firstItem.categories) $('.page-header__cat').html(firstItem.categories.join(', '));
-                            if (!firstItem.categories.length) $('.page-header__cat').remove();
-
-                            if (firstItem.title) $('.page-header__title a').html(firstItem.title).attr('href', 'post.html?author='+  encodeURIComponent(author) + '&src=' + encodeURIComponent(firstItem.url));
-
-                            if (firstItem.date) $('.page-header__date').html((new Date(firstItem.date)).toDateString());
-
-                            if (firstItem.description) $('.page-header__content p').first().html(firstItem.description);
-
-                            $('.page-header__content p a').attr('href', 'post.html?author='+  encodeURIComponent(author) + '&src=' + encodeURIComponent(firstItem.url));
-
-                            if (author) $('.page-header__meta .author span').html(author);
-
-                            blogroll.forEach(function (blogItem) {
-                                var date = (new Date(blogItem.date)).toDateString();
-                                var cats = blogItem.categories.join(', ');
-                                var href = 'post.html?author='+  encodeURIComponent(author) + '&src=' + encodeURIComponent(blogItem.url);
-                                // blogItem.title;
-                                // blogItem.description
-                                // href x2
-
-                                $('.blog-list').append(template.replace('{{description}}', blogItem.description).replace('{{title}}', blogItem.title).replace('{{cats}}', cats).replace('{{date}}', date).replace('{{href}}', href).replace('{{href}}', href))
-                            });
-
-                        }
-
+                        if (!--dirCount) butAfter();
+                    }).fail(function (e) {
+                        if (!--dirCount) butAfter();
                     });
                 })
             });
