@@ -6,6 +6,11 @@
 <!--<![endif]-->
 
 <head>
+    <script>
+        var repo = 'personal-blog-test';
+        var githubUser = 'kidGodzilla';
+        var author = 'James Futhey';
+    </script>
 
     <!--- basic page needs
     ================================================== -->
@@ -186,7 +191,7 @@
 
             <div class="col-twelve">
                 <div class="copyright">
-                    <span>Copyright &copy; 2019 James Futhey. All Rights Reserved. </span>
+                    <span class="copytext">Copyright &copy; 2019 James Futhey. All Rights Reserved. </span>
                     <span>Design by <a href="https://www.styleshout.com/">styleshout</a></span>	
                 </div>
 
@@ -216,7 +221,9 @@
     <script src="js/main.js"></script>
 
     <script>
-        var firstItem, files = [], blogroll = [], index = {}, baseUrl = 'https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/', dirPath = 'https://api.github.com/repos/kidGodzilla/personal-blog-test/contents/', author = 'James Futhey';
+        var baseUrl = 'https://raw.githubusercontent.com/' + githubUser + '/' + repo + '/master/';
+        var dirPath = 'https://api.github.com/repos/' + githubUser + '/' + repo + '/contents/';
+        var firstItem, files = [], blogroll = [], index = {};
 
         var template = '<article class="col-block"> <div class="blog-date"> <a href="{{href}}">{{date}}</a> </div> <h2 class="h01"><a href="{{href}}">{{title}}</a></h2> <p> {{description}} </p> <div class="blog-cat"> {{cats}} </div> </article>';
 
@@ -235,6 +242,8 @@
         $(document).ready(function () {
 
             $('.site-logo, .footer-site-logo').html('<h2>' + author + '.</h2>');
+
+            $('.copytext').html(`Copyright &copy; ${ (new Date()).getFullYear() } ${ author }. All Rights Reserved.`);
 
             $.get(dirPath, function (dir) {
                 window.dir = dir;
@@ -272,20 +281,20 @@
                             if (firstItem.categories) $('.page-header__cat').html(firstItem.categories.join(', '));
                             if (!firstItem.categories.length) $('.page-header__cat').remove();
 
-                            if (firstItem.title) $('.page-header__title a').html(firstItem.title).attr('href', 'post.html?src=' + encodeURIComponent(firstItem.url));
+                            if (firstItem.title) $('.page-header__title a').html(firstItem.title).attr('href', 'post.html?author='+  encodeURIComponent(author) + '&src=' + encodeURIComponent(firstItem.url));
 
                             if (firstItem.date) $('.page-header__date').html((new Date(firstItem.date)).toDateString());
 
                             if (firstItem.description) $('.page-header__content p').first().html(firstItem.description);
 
-                            $('.page-header__content p a').attr('href', 'post.html?src=' + encodeURIComponent(firstItem.url));
+                            $('.page-header__content p a').attr('href', 'post.html?author='+  encodeURIComponent(author) + '&src=' + encodeURIComponent(firstItem.url));
 
                             if (author) $('.page-header__meta .author span').html(author);
 
                             blogroll.forEach(function (blogItem) {
                                 var date = (new Date(blogItem.date)).toDateString();
                                 var cats = blogItem.categories.join(', ');
-                                var href = 'post.html?src=' + encodeURIComponent(blogItem.url);
+                                var href = 'post.html?author='+  encodeURIComponent(author) + '&src=' + encodeURIComponent(blogItem.url);
                                 // blogItem.title;
                                 // blogItem.description
                                 // href x2

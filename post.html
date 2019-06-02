@@ -6,7 +6,6 @@
 <!--<![endif]-->
 
 <head>
-
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
@@ -358,7 +357,7 @@
     
         <div class="col-twelve">
             <div class="copyright">
-                <span>Copyright &copy; 2019 James Futhey. All Rights Reserved. </span>
+                <span class="copytext">Copyright &copy; 2019 James Futhey. All Rights Reserved.</span>
                 <span>Design by <a href="https://www.styleshout.com/">styleshout</a></span>
             </div>
     
@@ -388,7 +387,7 @@
 <script src="js/main.js"></script>
 
 <script>
-    var baseUrl, postContent, parts, metadata, body, bodyHtml, author = 'James Futhey';
+    var baseUrl, postContent, parts, metadata, body, bodyHtml, author;
 
     var converter = new showdown.Converter();
 
@@ -398,6 +397,13 @@
         if (val && val.indexOf('&') !== -1) val = val.split('&')[0];
         return val;
     }
+
+    if (getSearchParam('author')) {
+        author = getSearchParam('author');
+        author = decodeURIComponent(author);
+    }
+
+    $('.copytext').html(`Copyright &copy; ${ (new Date()).getFullYear() } ${ author }. All Rights Reserved.`);
 
     $(document).ready(function () {
         $('.site-logo, .footer-site-logo').html('<h2>' + author + '.</h2>');
