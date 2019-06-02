@@ -236,7 +236,7 @@
                         metadata.path = item.path;
 
                         index[item.path] = metadata;
-                        blogroll.push(metadata);
+                        if (metadata.published) blogroll.push(metadata);
 
                         if (!--dirCount) {
                             // Sort
