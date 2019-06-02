@@ -1,5 +1,5 @@
 ---
-title: "“Anita Jacket”: Designing an Alexa Skill to determine if you need a jacket"
+title: "“Anita Jacket”: Designing an Alexa Skill to determine if you need a jacket"
 description: "So, both Alexa and Google Home give me a weather report when I say something like “Hey Alexa, do I need a jacket?” or “Should I wear a coat outside today?”. However, neither one of them actually…"
 date: "2017-10-30T19:51:43.203Z"
 categories: 
@@ -13,11 +13,11 @@ published: true
 canonicalLink: https://medium.com/@jamesfuthey/anita-jacket-designing-an-alexa-skill-to-determine-if-you-need-a-jacket-ebc8b35c285f
 ---
 
-## A Modern Voice-Design & Development process for an Alexa Skill
+## A Modern Voice-Design & Development process for an Alexa Skill
 
 So, both Alexa and Google Home give me a weather report when I say something like “Hey Alexa, do I need a jacket?” or “Should I wear a coat outside today?”. However, neither one of them actually answers the question: Do I need a jacket?
 
-![](./asset-1.png)
+![]([https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-1.png)
 
 I understand this is a personal preference issue. For some, 55 degrees may be nothing. For others, 65 may warrant a light jacket. But, interested in diving deeper into the Alexa skills API, I thought this would be a nice intermediate-level challenge to create a skill.
 
@@ -37,7 +37,7 @@ So, I went out searching for alternatives.
 
 My lack of maturity immediately swooped in to save the day, in the form of a knock-knock joke.
 
-![Anita minute to come up with a better Alexa skill name.](./asset-2.png)
+![Anita minute to come up with a better Alexa skill name.]([https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-2.png)
 
 > Knock, knock!  
 > Who’s there?  
@@ -51,7 +51,7 @@ This is a bit of a hack, but, I decided to name the app **“Anita Jacket”**. 
 
 Next, I took a few minutes to contemplate how the app should work.
 
-![](./asset-3.jpeg)
+![]([](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-3.jpeg)
 
 #### Design Guidelines & Heuristics
 
@@ -98,7 +98,7 @@ _MetaWeather provides an API that delivers JSON over HTTPS for access to our dat
 
 Next, I created a dialog flow diagram to iterate on the concept.
 
-![](./asset-4.png)
+![]([https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-4.png)
 
 ### Prototype
 
@@ -115,7 +115,7 @@ As well as create a sharable webpage I could use to get feedback.
 
 ### Development
 
-#### ZIP code database
+#### ZIP code database
 
 There are a few APIs that will do this for you. Google can do it, but it requires an API access key to do so. I’ve managed to avoid getting one thus far for this project, so I kept looking for alternatives. Quickly, I found:
 
@@ -138,13 +138,13 @@ Then, I removed the extra columns so that only **ZIP Code, City, State, Lat,** &
 
 **Reduced size (3):** 799kb (Single-line, parseable blob of text)
 
-![This lookup table looks a bit like a rainbow table, but at under 800kb, it can be inserted directly into my Lambda skill Javascript file, so I don’t have to pay execution milliseconds for an extra lookup request.](./asset-6.png)
+![This lookup table looks a bit like a rainbow table, but at under 800kb, it can be inserted directly into my Lambda skill Javascript file, so I don’t have to pay execution milliseconds for an extra lookup request.](./asset-6.png)
 
 **_Note:_** _This could be further reduced if you were ok with ZIP code ranges, but I do not have the expertise for this task._
 
 If you’re looking for a more robust solution (and not too worried about table size), [this package on NPM](https://www.npmjs.com/package/zipcodes) is probably what you’re looking for.
 
-#### Execution / API Lookup Flow
+#### Execution / API Lookup Flow
 
 ![A brief overview of what our skill needs to accomplish](./asset-7.png)
 
@@ -179,7 +179,7 @@ You can test your app at (almost\*) every step of the way using **echosim.io**. 
 [**Alexa Skill Testing Tool - Echosim.io**  
 _Echosim.io is an online community tool for developers that simulates the look and feel of an Amazon Echo._echosim.io](https://echosim.io/ "https://echosim.io/")[](https://echosim.io/)
 
-**_Why can’t that just be the default?_** If I ask Echosim.io for the weather it already defaults to Virgina (US-East-1). Grr… :)
+**_Why can’t that just be the default?_** If I ask Echosim.io for the weather it already defaults to Virgina (US-East-1). Grr… :)
 
 Anyway..
 
@@ -190,3 +190,6 @@ You can’t see this toy app since it’s still unpublished. So, I recorded a sh
 Have your own experience or tips on Designing for Voice & Alexa?
 
 Let me know what you think!
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMjQxODQ3NTg1XX0=
+-->
