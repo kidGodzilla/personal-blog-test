@@ -37,16 +37,19 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
 
     <style>
-        .header-logo a {
+        .header-logo a, .footer-site-logo {
             width: initial;
         }
-        .site-logo h2 {
+        .site-logo h2, .footer-site-logo h2 {
             font-family: 'Playfair Display', "librebaskerville-bold", serif;
-            /*letter-spacing: 0.25px;*/
+            letter-spacing: 0.25px;
             font-size: 3.2rem;
             font-weight: 900;
             margin-top: 13px;
             color: #fff;
+        }
+        .footer-site-logo h2 {
+            font-size: 3.6rem;
         }
         .blog-content img {
             max-width: 85%;
@@ -395,7 +398,7 @@
     }
 
     $(document).ready(function () {
-        $('.site-logo').html('<h2>' + author + '.</h2>');
+        $('.site-logo, .footer-site-logo').html('<h2>' + author + '.</h2>');
 
         if (getSearchParam('src')) postContent = getSearchParam('src');
         if (!postContent) location.href = 'index.html';
