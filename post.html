@@ -36,6 +36,17 @@
 
 
     <style>
+        .header-logo a {
+            width: initial;
+        }
+        .site-logo h2 {
+            font-family: 'Playfair Display', "librebaskerville-bold", serif;
+            letter-spacing: 0.25px;
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-top: 13px;
+            color: #fff;
+        }
         .blog-content img {
             max-width: 85%;
             margin: 0 auto;
@@ -383,9 +394,10 @@
     }
 
     $(document).ready(function () {
-        postContent = 'https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/announcing-presence-detection-and-meeting-room-automation-with-blink-camera-integration/index.md';
+        $('.site-logo').html('<h2>' + author + '.</h2>');
 
         if (getSearchParam('src')) postContent = getSearchParam('src');
+        if (!postContent) location.href = 'index.html';
         postContent = decodeURIComponent(postContent);
 
         baseUrl = postContent.split('/');
