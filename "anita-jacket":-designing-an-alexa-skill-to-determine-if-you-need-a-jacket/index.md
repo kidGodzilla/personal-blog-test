@@ -51,7 +51,7 @@ This is a bit of a hack, but, I decided to name the app **“Anita Jacket”**. 
 
 Next, I took a few minutes to contemplate how the app should work.
 
-![]([](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-3.jpeg)
+![](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-3.png)
 
 #### Design Guidelines & Heuristics
 
@@ -124,7 +124,7 @@ _Current, Free ZIP Code Database: All US Zipcodes listed in database formats_fed
 
 They offer two relatively-small databases. I chose the one that gives only a single location per zip code entered. It comes in CSV format.
 
-![](./asset-5.png)
+![]([https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-5.png)
 
 Also, I’m perfectly fine with a relatively-accurate solution. I’m not mailing anything. I’m looking up the weather. If we’re one city off, the forecast probably doesn’t differ enough to matter.
 
@@ -138,7 +138,7 @@ Then, I removed the extra columns so that only **ZIP Code, City, State, Lat,** &
 
 **Reduced size (3):** 799kb (Single-line, parseable blob of text)
 
-![This lookup table looks a bit like a rainbow table, but at under 800kb, it can be inserted directly into my Lambda skill Javascript file, so I don’t have to pay execution milliseconds for an extra lookup request.](./asset-6.png)
+![This lookup table looks a bit like a rainbow table, but at under 800kb, it can be inserted directly into my Lambda skill Javascript file, so I don’t have to pay execution milliseconds for an extra lookup request.]([https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-6.png)
 
 **_Note:_** _This could be further reduced if you were ok with ZIP code ranges, but I do not have the expertise for this task._
 
@@ -191,5 +191,5 @@ Have your own experience or tips on Designing for Voice & Alexa?
 
 Let me know what you think!
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQxODQ3NTg1XX0=
+eyJoaXN0b3J5IjpbLTkxMzYwNDg0MF19
 -->
