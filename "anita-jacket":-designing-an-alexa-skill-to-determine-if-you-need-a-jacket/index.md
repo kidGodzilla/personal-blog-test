@@ -17,7 +17,7 @@ canonicalLink: https://medium.com/@jamesfuthey/anita-jacket-designing-an-alexa-s
 
 So, both Alexa and Google Home give me a weather report when I say something like “Hey Alexa, do I need a jacket?” or “Should I wear a coat outside today?”. However, neither one of them actually answers the question: Do I need a jacket?
 
-![]([https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-1.png)
+![]([./asset-1.png)
 
 I understand this is a personal preference issue. For some, 55 degrees may be nothing. For others, 65 may warrant a light jacket. But, interested in diving deeper into the Alexa skills API, I thought this would be a nice intermediate-level challenge to create a skill.
 
@@ -37,7 +37,7 @@ So, I went out searching for alternatives.
 
 My lack of maturity immediately swooped in to save the day, in the form of a knock-knock joke.
 
-![Anita minute to come up with a better Alexa skill name.]([https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-2.png)
+![Anita minute to come up with a better Alexa skill name.]([./asset-2.png)
 
 > Knock, knock!  
 > Who’s there?  
@@ -51,7 +51,7 @@ This is a bit of a hack, but, I decided to name the app **“Anita Jacket”**. 
 
 Next, I took a few minutes to contemplate how the app should work.
 
-![](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-3.png)
+![](./asset-3.png)
 
 #### Design Guidelines & Heuristics
 
@@ -98,7 +98,7 @@ _MetaWeather provides an API that delivers JSON over HTTPS for access to our dat
 
 Next, I created a dialog flow diagram to iterate on the concept.
 
-![]([https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-4.png)
+![]([./asset-4.png)
 
 ### Prototype
 
@@ -124,7 +124,7 @@ _Current, Free ZIP Code Database: All US Zipcodes listed in database formats_fed
 
 They offer two relatively-small databases. I chose the one that gives only a single location per zip code entered. It comes in CSV format.
 
-![]([https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-5.png)
+![]([./asset-5.png)
 
 Also, I’m perfectly fine with a relatively-accurate solution. I’m not mailing anything. I’m looking up the weather. If we’re one city off, the forecast probably doesn’t differ enough to matter.
 
@@ -138,7 +138,7 @@ Then, I removed the extra columns so that only **ZIP Code, City, State, Lat,** &
 
 **Reduced size (3):** 799kb (Single-line, parseable blob of text)
 
-![This lookup table looks a bit like a rainbow table, but at under 800kb, it can be inserted directly into my Lambda skill Javascript file, so I don’t have to pay execution milliseconds for an extra lookup request.]([https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-6.png)
+![This lookup table looks a bit like a rainbow table, but at under 800kb, it can be inserted directly into my Lambda skill Javascript file, so I don’t have to pay execution milliseconds for an extra lookup request.]([./asset-6.png)
 
 **_Note:_** _This could be further reduced if you were ok with ZIP code ranges, but I do not have the expertise for this task._
 
@@ -146,7 +146,7 @@ If you’re looking for a more robust solution (and not too worried about table 
 
 #### Execution / API Lookup Flow
 
-![A brief overview of what our skill needs to accomplish]([https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/](https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/adding-a-meeting-room-resource-to-g-suite/asset-7.png)
+![A brief overview of what our skill needs to accomplish]([./asset-7.png)
 
 As you can see, our app needs to accomplish a lot!
 
@@ -191,5 +191,5 @@ Have your own experience or tips on Designing for Voice & Alexa?
 
 Let me know what you think!
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0NDc1MzcxOV19
+eyJoaXN0b3J5IjpbLTIwNDczOTYwMTEsMTI0NDc1MzcxOV19
 -->
