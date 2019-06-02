@@ -247,20 +247,20 @@
                             if (firstItem.categories) $('.page-header__cat').html(firstItem.categories.join(', '));
                             if (!firstItem.categories.length) $('.page-header__cat').remove();
 
-                            if (firstItem.title) $('.page-header__title a').html(firstItem.title).attr('href', '/post?src=' + encodeURIComponent(firstItem.url));
+                            if (firstItem.title) $('.page-header__title a').html(firstItem.title).attr('href', '/post.html?src=' + encodeURIComponent(firstItem.url));
 
                             if (firstItem.date) $('.page-header__date').html((new Date(firstItem.date)).toDateString());
 
                             if (firstItem.description) $('.page-header__content p').first().html(firstItem.description);
 
-                            $('.page-header__content p a').attr('href', '/post?src=' + encodeURIComponent(firstItem.url));
+                            $('.page-header__content p a').attr('href', '/post.html?src=' + encodeURIComponent(firstItem.url));
 
                             if (author) $('.page-header__meta .author span').html(author);
 
                             blogroll.forEach(function (blogItem) {
                                 var date = (new Date(blogItem.date)).toDateString();
                                 var cats = blogItem.categories.join(', ');
-                                var href = '/post?src=' + encodeURIComponent(blogItem.url);
+                                var href = '/post.html?src=' + encodeURIComponent(blogItem.url);
                                 // blogItem.title;
                                 // blogItem.description
                                 // href x2
