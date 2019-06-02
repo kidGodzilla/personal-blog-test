@@ -10,7 +10,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>James Futhey – Blog</title>
+    <title>Blog</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -71,19 +71,18 @@
 
                 <div class="page-header__info">
                     <div class="page-header__cat">
-                        <a href="#0">Branding</a><a href="#0">Design</a>
+
                     </div>
                     <div class="page-header__date">
-                        Sept 16, 2017
+
                     </div>
                 </div>
                 
                 <h1 class="page-header__title">
                     <a href="#0" title="">
-                        The 10 Golden Rules of Clean Simple Design.
                     </a>
                 </h1>
-                <p>Pellentesque in ipsum id orci porta dapibus amet dui. Ad id deserunt ratione autem eius et minima ut et. Nihil sed quis velit aut enim aliquam. Quas non ad sint eveniet voluptatem est iure...</p>
+                <p></p>
                 <p>
                     <a href="#0" class="btn btn--stroke page-header__btn">Read More</a>
                 </p>
@@ -198,6 +197,10 @@
     <script>
         var firstItem, files = [], blogroll = [], index = {}, baseUrl = 'https://raw.githubusercontent.com/kidGodzilla/personal-blog-test/master/', dirPath = 'https://api.github.com/repos/kidGodzilla/personal-blog-test/contents/', author = 'James Futhey';
 
+        var template = '<article class="col-block"> <div class="blog-date"> <a href="{{href}}">{{date}}</a> </div> <h2 class="h01"><a href="{{href}}">{{title}}</a></h2> <p> {{description}} </p> <div class="blog-cat"> {{cats}} </div> </article>';
+
+        document.title = author + ' – Blog';
+
         var converter = new showdown.Converter();
 
         function getSearchParam (key) {
@@ -207,7 +210,6 @@
             return val;
         }
 
-        var template = '<article class="col-block"> <div class="blog-date"> <a href="{{href}}">{{date}}</a> </div> <h2 class="h01"><a href="{{href}}">{{title}}</a></h2> <p> {{description}} </p> <div class="blog-cat"> {{cats}} </div> </article>';
 
         $(document).ready(function () {
 
